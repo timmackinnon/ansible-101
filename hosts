@@ -1,0 +1,8 @@
+#
+# List the set of targets.
+# The ansible_host could be host names or IP addresses
+#
+[targets]
+#host0 ansible_host=a.b.c.d
+#host1 ansible_host=a.b.c.d
+#host2 ansible_host=a.b.c.d

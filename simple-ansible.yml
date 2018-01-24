@@ -1,0 +1,27 @@
+---
+- name: Download a file and do something with it
+  hosts: all
+  vars:
+    java_version: "zulu8.25.0.1-jdk8.0.152-linux_x64"
+    java_file: "{{ java_version }}.tar.gz"
+    file_to_download: "http://cdn.azul.com/zulu/bin/{{ java_file }}"
+  tasks:
+    - name: Download file
+      get_url:
+        url: "{{ file_to_download }}"
+        dest: "./{{ java_file }}"
+    - name: Unarchive file
+      unarchive:
+        remote_src: true
+        src: "{{ java_file }}"
+        dest: "."
+    - name: Check target contents
+      shell: |
+        ls -1
+      register: list
+    - debug: var=list.stdout_lines
+    - name: Specific command - Java version
+      shell: |
+        {{ java_version }}/bin/java -version
+      register: java_version
+    - debug: var=java_version.stderr
