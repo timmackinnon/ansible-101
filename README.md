@@ -1,7 +1,7 @@
 ## Introduction
 This repository code holds some example code for how to use Ansible to target a set of remote hosts to download a file, explode it and verify a thing or two. 
 
-A simple `Vagrantfile` here to potentially be used as the environment in which to use this code.
+A simple `Vagrantfile` is included here to potentially be used as the environment in which to run this code.
 
 ## Setting up a Virtualenv
 ```
